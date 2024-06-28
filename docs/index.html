@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>URL Shortener</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css" rel="stylesheet">
+    <script defer src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    <script defer src="config.js"></script>
+</head>
+<body>
+<div class="container">
+    <h3 class="center-align">URL Shortener</h3>
+    <div class="row">
+        <form id="shorten-form" class="col s12">
+            <div class="row">
+                <div class="input-field col s12">
+                    <input id="original_url" type="url" class="validate" required>
+                    <label for="original_url">Enter your URL</label>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col s12 center-align">
+                    <button class="btn waves-effect waves-light" type="submit">Shorten URL</button>
+                </div>
+            </div>
+        </form>
+    </div>
+    <div class="row">
+        <div class="col s12">
+            <h5 class="center-align">Shortened URL</h5>
+            <p id="short-url" class="center-align"></p>
+        </div>
+    </div>
+</div>
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+    const form = document.getElementById('shorten-form');
+    form.addEventListener('submit', async function (e) {
+      e.preventDefault();
+      const originalUrl = document.getElementById('original_url').value;
+      try {
+        const response = await fetch(`${supabase_url}/rest/v1/rpc/shorten_url`, {
+          method: 'POST',
+          headers: {
+            'apikey':anon_key ,
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify({ _original: originalUrl })
+        });
+
+        if (response.ok) {
+          const data = await response.json();
+          console.log('scripts.js:19 ',data)
+          document.getElementById('short-url').textContent = `${short_domain}${data}`;
+        } else {
+          M.toast({ html: 'Error shortening URL', classes: 'red' });
+        }
+      } catch (error) {
+        console.error('Error:', error);
+        M.toast({ html: 'Network error', classes: 'red' });
+      }
+    });
+  });
+</script>
+</body>
+</html>
