@@ -1,0 +1,59 @@
+body {
+    margin: 0;
+    font-family: "Gloria Hallelujah", cursive;
+    font-size: 16px;
+    line-height: 1.8;
+}
+
+main {
+    padding: 16px;
+    text-align: center;
+}
+
+wired-card {
+    margin: 0 auto;
+    padding: 20px;
+}
+
+section {
+    max-width: 400px;
+    margin: 0 auto;
+    padding: 60px 0;
+}
+
+wired-button {
+    background: yellow;
+    color: red;
+    margin: 8px;
+}
+
+wired-input {
+    width: 400px;
+    font-family: inherit;
+}
+
+#error-card {
+    display: none;
+    color: lightyellow;
+}
+
+#main-card {
+    color: lightyellow;
+}
+
+#url-card {
+    display: none;
+}
+#short-url {
+    padding: 20px;
+    margin-right: 40px;
+    margin-bottom: 40px;
+}
+
+#btn-clip {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    margin-bottom: -15px;
+    margin-right: -10px;
+}
