@@ -28,7 +28,8 @@ wired-button {
 }
 
 wired-input {
-    width: 400px;
+    width: 96%;
+    margin-right:10px;
     font-family: inherit;
 }
 

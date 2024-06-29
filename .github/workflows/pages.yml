@@ -1,0 +1,31 @@
+name: Github Pages
+
+# By default, runs if you push to main. keeps your deployed app in sync with main branch.
+on:
+  push:
+    branches:
+      - master
+# to only run when you do a new github release, comment out above part and uncomment the below trigger.
+# on:
+#   release:
+#     types:
+#       - published
+
+env:
+  SUPABASE_TOKEN: ${{ secrets.SUPABASE_TOKEN }}
+
+permissions:
+  contents: write # for committing to gh-pages branch.
+
+jobs:
+  build-github-pages:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2 # repo checkout
+      - name: Deploy
+        uses: JamesIves/github-pages-deploy-action@v4
+        with:
+          folder: pages
+          # this option will not maintain any history of your previous pages deployment
+          # set to false if you want all page build to be committed to your gh-pages branch history
+          single-commit: true
