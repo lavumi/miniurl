@@ -1,0 +1,3 @@
+const supabase_url = 'https://vfnoyacinpkpwpcjuosx.supabase.co'
+const anon_key = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InZmbm95YWNpbnBrcHdwY2p1b3N4Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3MTk1MzIxODUsImV4cCI6MjAzNTEwODE4NX0.HmaA5O6DfLzY0Li8diuEjayMG-i0rxwjDklwbooIrHw'
+const short_domain = 'https://lavu.me/'
