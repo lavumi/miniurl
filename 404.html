@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>Redirecting...</title>
+    <script defer src="config.js"></script>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<main>
+    <wired-card id="error-card" fill="red">
+        <h2 id="error-message" style="margin: 0">invalid url</h2>
+    </wired-card>
+</main>
+
+<script>
+  window.onload = function() {
+    let currentUrl = window.location.href;
+    let code = currentUrl.substring(currentUrl.lastIndexOf('/') + 1);
+    (async ()=>{
+      const response = await fetch(`${supabase_url}/rest/v1/rpc/get_url`, {
+        method: 'POST',
+        headers: {
+          'apikey':anon_key ,
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ code: code })
+      });
+      if (response.ok && response) {
+          let dest =await response.json();
+          if (dest != null ){
+              window.location.href = dest;
+          }
+          else {
+              document.getElementById("error-card").style.display = "inline-block"
+          }
+      }
+    })()
+
+  }
+</script>
+<script async="" src="wired.min.js"></script>
+</body>
+</html>

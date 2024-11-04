@@ -1,0 +1,3 @@
+const supabase_url = 'https://vbejsgakijlxhxkdufna.supabase.co'
+const anon_key = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InZiZWpzZ2FraWpseGh4a2R1Zm5hIiwicm9sZSI6ImFub24iLCJpYXQiOjE3MzA2ODQ1MjgsImV4cCI6MjA0NjI2MDUyOH0.2egkqak3Sk56aA8MPsnigv30h1exPETpof4mCG5X2hg'
+const short_domain = 'https://lavu.me/'
